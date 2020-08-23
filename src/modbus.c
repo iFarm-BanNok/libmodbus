@@ -2012,6 +2012,9 @@ static int _modbus_rpi_pin_export_direction(int debug,int rpi_bcm_pin)
   bytes_written = snprintf(buffer, BUFFER_MAX, "%d",rpi_bcm_pin);
   write(fd, buffer, bytes_written);
   close(fd);
+
+  usleep(GPIO_EXPORT_USLEEP);
+
   //set GPIO direction code
   static const char s_directions_str[]  = "out";
   char path[DIRECTION_MAX];

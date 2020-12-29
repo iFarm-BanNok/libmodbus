@@ -21,7 +21,7 @@
 
 #include "modbus-version.h"
 
-#define GPIO_EXPORT_USLEEP 50000
+#define GPIO_EXPORT_USLEEP 100000
 
 #if defined(_MSC_VER)
 # if defined(DLLBUILD)

@@ -2104,7 +2104,7 @@ int modbus_rpi_pin_export_direction(modbus_t *ctx)
   {
     if(_modbus_rpi_pin_export_direction(ctx->debug,ctx->rpi_bcm_pin_re) == 0)
     {
-      return _modbus_rpi_pin_export_direction(ctx->debug,ctx->rpi_bcm_pin_de);
+      return (ctx->rpi_bcm_pin_re != ctx->rpi_bcm_pin_de) ? _modbus_rpi_pin_export_direction(ctx->debug,ctx->rpi_bcm_pin_de) : 0;
     }
     else
     {
@@ -2125,7 +2125,7 @@ int modbus_rpi_pin_unexport_direction(modbus_t *ctx)
   {
     if(_modbus_rpi_pin_unexport_direction(ctx->debug,ctx->rpi_bcm_pin_re) == 0)
     {
-      return _modbus_rpi_pin_unexport_direction(ctx->debug,ctx->rpi_bcm_pin_de);
+      return (ctx->rpi_bcm_pin_re != ctx->rpi_bcm_pin_de) ? _modbus_rpi_pin_unexport_direction(ctx->debug,ctx->rpi_bcm_pin_de) : 0;
     }
     else
     {
